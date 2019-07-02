@@ -25,23 +25,20 @@
     <script>
       // var map;
       window.addEventListener("message", receiveMessage, false);
-
-      function receiveMessage(event) {
-        const location = event.data;
-        map.panTo([-34.397, 145.644])
-        console.log(event);
-      }
-      // function initMap() {
-      //   map = new google.maps.Map(document.getElementById('map'), {
-      //     center: {lat: -34.397, lng: 150.644},
-      //     zoom: 8
-      //   });
-      // }
       var map = L.map('map', {
           center: [-34.397, 150.644],
           zoom: 11
       });
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'}).addTo(map);
+
+      function receiveMessage(event) {
+        if (!event.origin.includes('wix')) {
+          return; 
+        }
+        const location = event.data;
+        map.panTo(location)
+        console.log(event);
+      }
     </script>
   </body>
 </html>
