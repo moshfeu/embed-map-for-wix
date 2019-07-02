@@ -36,7 +36,8 @@
           return; 
         }
         const location = event.data;
-        map.panTo(location)
+        map.panTo(location);
+        L.marker(location).addTo(map);
         console.log(event);
       }
     </script>
