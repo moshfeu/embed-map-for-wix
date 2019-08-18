@@ -17,7 +17,7 @@ function receiveMessage(event) {
 }
 ```
 
-In your wix site add an `iframe` component ([how?](https://support.wix.com/en/article/embedding-an-external-site-3240166)], grab its `id`
+In your wix site add an `iframe` component ([how?](https://support.wix.com/en/article/embedding-an-external-site-3240166)), grab its `id`
 and use [corvid](https://support.wix.com/en/article/about-corvid-by-wix#to-enable-corvid-on-your-site) to add the follow code to your wix website:
 
 ```javascript
